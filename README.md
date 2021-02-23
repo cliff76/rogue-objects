@@ -10,7 +10,7 @@ mock objects slightly simpler.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rogue'
+gem 'rogue-objects'
 ```
 
 And then execute:
@@ -19,7 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rogue
+    $ gem install rogue-objects
 
 ## Usage
 
