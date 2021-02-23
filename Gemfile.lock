@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    rogue-objects (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.8.5)
+    rake (10.4.2)
+
+PLATFORMS
+  x86_64-darwin-19
+
+DEPENDENCIES
+  minitest (~> 5.0)
+  rake (~> 10.0)
+  rogue-objects!
+
+BUNDLED WITH
+   2.2.11
