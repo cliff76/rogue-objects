@@ -1,8 +1,8 @@
-# Rogue
+# Rogue-Objects
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rogue`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Rogue-Objects is a set of utilities to help developers write focused unit tests. It includes 
+a Rogue-Object component which is a dynamic object that can be created with properties & functions
+that can be accessed via dot notation.
 
 ## Installation
 
@@ -22,7 +22,34 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Scenario:
+You need to test a DuckHunter which requires an object that looks like a duck and quacks like a duck
+but you don't want to create an actual duck. Rogue-Objects give you an `obj` expression you can use
+to create a lightweight object that looks like a duck and quacks like a duck. This is an object with
+all the properties/methods of a duck. See the following:
+
+```ruby
+duck = obj(feathers:true, color:'black', name: 'Daffy',
+           speak: proc{ "Quack!"},
+           fly: proc {|location| location.y += 100})
+```
+
+Consider a DuckHunter which looks for this animal and calls methods and accesses properties via dot
+notation.
+```ruby
+class DuckHunter
+  def hunt
+    if @duck.feathers && @duck.color == 'black'
+      @duck.fly
+      while @duck.speak == 'Quack!'
+        shoot(@duck)
+      end
+    end
+  end
+end
+```
+This hunter can be supplied with our duck without the need to load the actual Duck class, formally create
+a Duck class substitution class, or use too much noise code from mock frameworks.
 
 ## Development
 
